@@ -51,7 +51,7 @@ X_testK1 = pd.read_csv('./BalanceoRNA3/DiabetesK1Test.csv')
 X_testK1 = X_testK1.drop_duplicates()
 Y_testK1 = X_testK1[[' class']]
 X_testK1 = X_testK1.drop(columns=' class')
-print(Y_trainK1)
+# print(Y_trainK1)
 #print(Y_trainK1.columns)
 '''
 #--------------------------
@@ -86,55 +86,64 @@ test_accuracy = [] #lista de aciertos de test
 training_error = [] #lista de errores de entrenamiento
 test_error = [] #lista de errores de test
 
+training_accuracy_record = []
+testing_accuracy_record = []
+plots_titles = []
 
 
 output_file = open("output.txt", "w")
-n_epoch = range(5, 200, 5) #granularidad de 10 a 200 de 10 en 10
-neurons = range(6,8,1)
-lrates = range(21,50,1)
-momentums = range(0,50,1)
+n_epoch = range(50, 160, 5) #granularidad de 10 a 200 de 10 en 10
+neurons = range(7,10,1)
+lrates = range(10,50,1)
+momentums = range(20,50,1)
 
-for neuron in neurons: 
-  for learnRate in lrates:
-    for momentum in momentums:
-      for epoch in n_epoch:
-          # build the model
-          learningRate = learnRate*0.01
-          momentumf = momentum*0.01
-          clasificador = MLPClassifier(solver='lbfgs', #metrica de calidad de resutlado
-                          alpha=1e-5,
-                          hidden_layer_sizes=(neuron),
-                          random_state=42,
-                          learning_rate_init= learningRate,
-                          momentum=momentumf,
-                          activation = 'relu',
-                          max_iter=epoch)
-          clasificador.fit(X_trainK1, Y_trainK1)
-          # record training set accuracy and error
-          training_accuracy.append(clasificador.score(X_trainK1, Y_trainK1))
-          training_error.append(1.0 - clasificador.score(X_trainK1, Y_trainK1))
-          # record generalization accuracy and error
-          test_accuracy.append(clasificador.score(X_testK1, Y_testK1))
-          test_error.append(1.0 - clasificador.score(X_testK1, Y_testK1))
-          
-          accuracytrain = clasificador.score(X_trainK1, Y_trainK1)
-          accuracytest = clasificador.score(X_testK1, Y_testK1)
-          if accuracytrain > 0.653 and accuracytest > 0.653:
-            print(f"Neuronas: {neuron} LR: {learningRate} MOM: {momentumf} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}", file=output_file)
-          
-      if accuracytrain > 0.653 and accuracytest > 0.653:
-        # print("Neuronas: {neuron} LR: {learnRate} MOM: {momentum} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}".format(neuron,learnRate,momentum,epoch,accuracytrain,accuracytest))
-        plt.plot(n_epoch, training_accuracy, label="training accuracy")
-        plt.plot(n_epoch, test_accuracy, label="test accuracy")
-        plt.ylabel("Accuracy")
-        plt.xlabel("n_depth")
-        plt.legend()
-        plt.savefig(f"./graphs/output-{datetime.datetime.now()}.png")
+try:
+  for neuron in neurons: 
+    for learnRate in lrates:
+      for momentum in momentums:
+        training_accuracy = []
+        training_error = []
+        test_accuracy = []
+        test_error = []
+        for epoch in n_epoch:
+            # build the model
+            learningRate = learnRate*0.01
+            momentumf = momentum*0.01
+            clasificador = MLPClassifier(solver='adam', #metrica de calidad de resutlado
+                            alpha=1e-5,
+                            hidden_layer_sizes=(neuron),
+                            random_state=42,
+                            learning_rate_init= learningRate,
+                            momentum=momentumf,
+                            activation = 'relu',
+                            max_iter=epoch)
+            clasificador.fit(X_trainK1, Y_trainK1)
+            # record training set accuracy and error
+            training_accuracy.append(clasificador.score(X_trainK1, Y_trainK1))
+            training_error.append(1.0 - clasificador.score(X_trainK1, Y_trainK1))
+            # record generalization accuracy and error
+            test_accuracy.append(clasificador.score(X_testK1, Y_testK1))
+            test_error.append(1.0 - clasificador.score(X_testK1, Y_testK1))
+            
+            accuracytrain = clasificador.score(X_trainK1, Y_trainK1)
+            accuracytest = clasificador.score(X_testK1, Y_testK1)
+            print(f"Neuronas: {neuron} LR: {learningRate} MOM: {momentumf} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}", file=output_file)   
+
+        if accuracytrain > 0.55 and accuracytest > 0.55:
+          plt.plot(n_epoch, training_accuracy, label="training accuracy")
+          plt.plot(n_epoch, test_accuracy, label="test accuracy")
+          plt.ylabel("Accuracy")
+          plt.xlabel("n_depth")
+          plt.legend()
+          plt.savefig(f"./graphs/output-{datetime.datetime.now()}.png")
+except KeyboardInterrupt:
+    print(f"Neuronas: {neuron}")
+
+
             
 
           #print("Accuracy on training set: {:.3f}".format(clasificador.score(X_trainK1, Y_trainK1)))
           #print("Accuracy on test set: {:.3f}".format(clasificador.score(X_testK1, Y_testK1)))
-
 '''
 plt.plot(n_epoch, training_accuracy, label="training accuracy")
 plt.plot(n_epoch, test_accuracy, label="test accuracy")
