@@ -1,0 +1,12 @@
+0       tested_positive
+1       tested_positive
+2       tested_positive
+3       tested_positive
+4       tested_positive
+             ...       
+1061    tested_negative
+1062    tested_negative
+1063    tested_negative
+1064    tested_negative
+1065    tested_negative
+Name:  class, Length: 1066, dtype: object
