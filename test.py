@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import OneHotEncoder
+import datetime
 
 
 # atributosName=setInicial.columns[:-1]
@@ -87,10 +88,10 @@ test_error = [] #lista de errores de test
 
 
 
-
+output_file = open("output.txt", "w")
 n_epoch = range(5, 200, 5) #granularidad de 10 a 200 de 10 en 10
-neurons = range(8,10,1)
-lrates = range(10,50,1)
+neurons = range(6,8,1)
+lrates = range(21,50,1)
 momentums = range(0,50,1)
 
 for neuron in neurons: 
@@ -98,8 +99,8 @@ for neuron in neurons:
     for momentum in momentums:
       for epoch in n_epoch:
           # build the model
-          learningRate = learnRate/100.0
-          momentumf = momentum/100.0
+          learningRate = learnRate*0.01
+          momentumf = momentum*0.01
           clasificador = MLPClassifier(solver='lbfgs', #metrica de calidad de resutlado
                           alpha=1e-5,
                           hidden_layer_sizes=(neuron),
@@ -118,17 +119,17 @@ for neuron in neurons:
           
           accuracytrain = clasificador.score(X_trainK1, Y_trainK1)
           accuracytest = clasificador.score(X_testK1, Y_testK1)
-          if accuracytrain > 0.70 and accuracytest > 0.70:
-            print(f"Neuronas: {neuron} LR: {learnRate} MOM: {momentum} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}")
+          if accuracytrain > 0.653 and accuracytest > 0.653:
+            print(f"Neuronas: {neuron} LR: {learningRate} MOM: {momentumf} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}", file=output_file)
           
-    if accuracytrain > 0.60 and accuracytest > 0.60:
+      if accuracytrain > 0.653 and accuracytest > 0.653:
         # print("Neuronas: {neuron} LR: {learnRate} MOM: {momentum} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}".format(neuron,learnRate,momentum,epoch,accuracytrain,accuracytest))
         plt.plot(n_epoch, training_accuracy, label="training accuracy")
         plt.plot(n_epoch, test_accuracy, label="test accuracy")
         plt.ylabel("Accuracy")
         plt.xlabel("n_depth")
         plt.legend()
-        plt.show()
+        plt.savefig(f"./graphs/output-{datetime.datetime.now()}.png")
             
 
           #print("Accuracy on training set: {:.3f}".format(clasificador.score(X_trainK1, Y_trainK1)))
