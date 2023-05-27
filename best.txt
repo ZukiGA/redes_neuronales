@@ -1,0 +1,5 @@
+
+Neuronas: 8 Activation: logistic alpha: 0.1 Epoch: 159 AccTrain: 0.7645403377110694 AccTest: 0.7640449438202247
+Neuronas: 8 Activation: identity alpha: 1e-05 Epoch: 127 AccTrain: 0.7729831144465291 AccTest: 0.7490636704119851
+Neuronas: 8 Activation: identity alpha: 0.0001 Epoch: 99 AccTrain: 0.7551594746716698 AccTest: 0.7284644194756554
+Neuronas: 9 Activation: relu alpha: 1e-05 Epoch: 149 AccTrain: 0.7514071294559099 AccTest: 0.7434456928838952
