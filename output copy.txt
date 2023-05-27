@@ -1,0 +1,105 @@
+Neuronas: 7 Activation: logistic alpha: 1e-05 Epoch: 159 AccTrain: 0.7195121951219512 AccTest: 0.7228464419475655
+Neuronas: 7 Activation: logistic alpha: 1e-05 Epoch: 159 AccTrain: 0.7694470477975632 AccTest: 0.7354596622889306
+Neuronas: 7 Activation: logistic alpha: 1e-05 Epoch: 159 AccTrain: 0.7488284910965324 AccTest: 0.774859287054409
+AccTrain: 0.7459292446720157 AccTest: 0.744388463763635
+Neuronas: 7 Activation: relu alpha: 1e-05 Epoch: 159 AccTrain: 0.724202626641651 AccTest: 0.7059925093632958
+Neuronas: 7 Activation: relu alpha: 1e-05 Epoch: 159 AccTrain: 0.746954076850984 AccTest: 0.6622889305816135
+Neuronas: 7 Activation: relu alpha: 1e-05 Epoch: 159 AccTrain: 0.7563261480787254 AccTest: 0.7654784240150094
+AccTrain: 0.7424942838571201 AccTest: 0.7112532879866397
+Neuronas: 7 Activation: identity alpha: 1e-05 Epoch: 159 AccTrain: 0.7401500938086304 AccTest: 0.7303370786516854
+Neuronas: 7 Activation: identity alpha: 1e-05 Epoch: 159 AccTrain: 0.7450796626054358 AccTest: 0.6960600375234521
+Neuronas: 7 Activation: identity alpha: 1e-05 Epoch: 159 AccTrain: 0.7150890346766635 AccTest: 0.7617260787992496
+AccTrain: 0.7334395970302432 AccTest: 0.7293743983247958
+Neuronas: 7 Activation: logistic alpha: 0.0001 Epoch: 159 AccTrain: 0.724202626641651 AccTest: 0.7097378277153558
+Neuronas: 7 Activation: logistic alpha: 0.0001 Epoch: 159 AccTrain: 0.7647610121836926 AccTest: 0.7410881801125704
+Neuronas: 7 Activation: logistic alpha: 0.0001 Epoch: 159 AccTrain: 0.7357075913776945 AccTest: 0.7654784240150094
+AccTrain: 0.7415570767343461 AccTest: 0.7387681439476452
+Neuronas: 7 Activation: relu alpha: 0.0001 Epoch: 159 AccTrain: 0.7317073170731707 AccTest: 0.7265917602996255
+Neuronas: 7 Activation: relu alpha: 0.0001 Epoch: 159 AccTrain: 0.7403936269915652 AccTest: 0.6848030018761726
+Neuronas: 7 Activation: relu alpha: 0.0001 Epoch: 159 AccTrain: 0.7235238987816307 AccTest: 0.7223264540337712
+AccTrain: 0.7318749476154555 AccTest: 0.7112404054031898
+Neuronas: 7 Activation: identity alpha: 0.0001 Epoch: 159 AccTrain: 0.7110694183864915 AccTest: 0.7322097378277154
+Neuronas: 7 Activation: identity alpha: 0.0001 Epoch: 159 AccTrain: 0.7403936269915652 AccTest: 0.6848030018761726
+Neuronas: 7 Activation: identity alpha: 0.0001 Epoch: 159 AccTrain: 0.7169634489222118 AccTest: 0.7354596622889306
+AccTrain: 0.7228088314334228 AccTest: 0.7174908006642728
+Neuronas: 7 Activation: logistic alpha: 0.001 Epoch: 159 AccTrain: 0.7110694183864915 AccTest: 0.7116104868913857
+Neuronas: 7 Activation: logistic alpha: 0.001 Epoch: 159 AccTrain: 0.7703842549203374 AccTest: 0.7354596622889306
+Neuronas: 7 Activation: logistic alpha: 0.001 Epoch: 159 AccTrain: 0.7516401124648547 AccTest: 0.7673545966228893
+AccTrain: 0.7443645952572279 AccTest: 0.7381415819344018
+Neuronas: 7 Activation: relu alpha: 0.001 Epoch: 159 AccTrain: 0.7270168855534709 AccTest: 0.7359550561797753
+Neuronas: 7 Activation: relu alpha: 0.001 Epoch: 159 AccTrain: 0.7375820056232427 AccTest: 0.6679174484052532
+Neuronas: 7 Activation: relu alpha: 0.001 Epoch: 159 AccTrain: 0.7572633552014996 AccTest: 0.7804878048780488
+AccTrain: 0.7406207487927378 AccTest: 0.728120103154359
+Neuronas: 7 Activation: identity alpha: 0.001 Epoch: 159 AccTrain: 0.7335834896810507 AccTest: 0.7340823970037453
+Neuronas: 7 Activation: identity alpha: 0.001 Epoch: 159 AccTrain: 0.7432052483598875 AccTest: 0.6904315196998124
+Neuronas: 7 Activation: identity alpha: 0.001 Epoch: 159 AccTrain: 0.7197750702905342 AccTest: 0.7504690431519699
+AccTrain: 0.7321879361104907 AccTest: 0.7249943199518425
+Neuronas: 7 Activation: logistic alpha: 0.01 Epoch: 159 AccTrain: 0.7148217636022514 AccTest: 0.7059925093632958
+Neuronas: 7 Activation: logistic alpha: 0.01 Epoch: 159 AccTrain: 0.7656982193064668 AccTest: 0.7298311444652908
+Neuronas: 7 Activation: logistic alpha: 0.01 Epoch: 159 AccTrain: 0.739456419868791 AccTest: 0.7729831144465291
+AccTrain: 0.7399921342591697 AccTest: 0.7362689227583719
+Neuronas: 7 Activation: relu alpha: 0.01 Epoch: 159 AccTrain: 0.7317073170731707 AccTest: 0.7284644194756554
+Neuronas: 7 Activation: relu alpha: 0.01 Epoch: 159 AccTrain: 0.7460168697282099 AccTest: 0.6697936210131332
+Neuronas: 7 Activation: relu alpha: 0.01 Epoch: 159 AccTrain: 0.6982193064667291 AccTest: 0.7148217636022514
+AccTrain: 0.7253144977560365 AccTest: 0.7043599346970133
+Neuronas: 7 Activation: identity alpha: 0.01 Epoch: 159 AccTrain: 0.7279549718574109 AccTest: 0.7284644194756554
+Neuronas: 7 Activation: identity alpha: 0.01 Epoch: 159 AccTrain: 0.7291471415182755 AccTest: 0.6923076923076923
+Neuronas: 7 Activation: identity alpha: 0.01 Epoch: 159 AccTrain: 0.711340206185567 AccTest: 0.7467166979362101
+AccTrain: 0.7228141065204179 AccTest: 0.7224962699065193
+Neuronas: 7 Activation: logistic alpha: 0.1 Epoch: 159 AccTrain: 0.7317073170731707 AccTest: 0.7284644194756554
+Neuronas: 7 Activation: logistic alpha: 0.1 Epoch: 159 AccTrain: 0.7432052483598875 AccTest: 0.7110694183864915
+Neuronas: 7 Activation: logistic alpha: 0.1 Epoch: 159 AccTrain: 0.7600749765698219 AccTest: 0.7617260787992496
+AccTrain: 0.7449958473342934 AccTest: 0.7337533055537988
+Neuronas: 7 Activation: relu alpha: 0.1 Epoch: 159 AccTrain: 0.7354596622889306 AccTest: 0.7546816479400749
+Neuronas: 7 Activation: relu alpha: 0.1 Epoch: 159 AccTrain: 0.7413308341143393 AccTest: 0.6735459662288931
+Neuronas: 7 Activation: relu alpha: 0.1 Epoch: 159 AccTrain: 0.703842549203374 AccTest: 0.7223264540337712
+AccTrain: 0.7268776818688814 AccTest: 0.7168513560675797
+Neuronas: 7 Activation: identity alpha: 0.1 Epoch: 159 AccTrain: 0.7354596622889306 AccTest: 0.7340823970037453
+Neuronas: 7 Activation: identity alpha: 0.1 Epoch: 159 AccTrain: 0.7338331771321462 AccTest: 0.6791744840525328
+Neuronas: 7 Activation: identity alpha: 0.1 Epoch: 159 AccTrain: 0.711340206185567 AccTest: 0.7504690431519699
+AccTrain: 0.7268776818688814 AccTest: 0.7212419747360826
+Neuronas: 8 Activation: logistic alpha: 1e-05 Epoch: 159 AccTrain: 0.6782363977485929 AccTest: 0.6779026217228464
+Neuronas: 8 Activation: logistic alpha: 1e-05 Epoch: 159 AccTrain: 0.619493908153702 AccTest: 0.600375234521576
+Neuronas: 8 Activation: logistic alpha: 1e-05 Epoch: 159 AccTrain: 0.6860356138706654 AccTest: 0.7148217636022514
+Neuronas: 8 Activation: relu alpha: 1e-05 Epoch: 159 AccTrain: 0.650093808630394 AccTest: 0.649812734082397
+Neuronas: 8 Activation: relu alpha: 1e-05 Epoch: 159 AccTrain: 0.7197750702905342 AccTest: 0.6716697936210131
+Neuronas: 8 Activation: relu alpha: 1e-05 Epoch: 159 AccTrain: 0.7085285848172446 AccTest: 0.7335834896810507
+Neuronas: 8 Activation: identity alpha: 1e-05 Epoch: 159 AccTrain: 0.7673545966228893 AccTest: 0.7584269662921348
+Neuronas: 8 Activation: identity alpha: 1e-05 Epoch: 159 AccTrain: 0.7713214620431116 AccTest: 0.7523452157598499
+Neuronas: 8 Activation: identity alpha: 1e-05 Epoch: 159 AccTrain: 0.7497656982193065 AccTest: 0.7673545966228893
+AccTrain: 0.7628139189617692 AccTest: 0.7593755928916247
+Neuronas: 8 Activation: logistic alpha: 0.0001 Epoch: 159 AccTrain: 0.626641651031895 AccTest: 0.5861423220973783
+Neuronas: 8 Activation: logistic alpha: 0.0001 Epoch: 159 AccTrain: 0.6541705716963448 AccTest: 0.6060037523452158
+Neuronas: 8 Activation: logistic alpha: 0.0001 Epoch: 159 AccTrain: 0.7216494845360825 AccTest: 0.7448405253283302
+Neuronas: 8 Activation: relu alpha: 0.0001 Epoch: 159 AccTrain: 0.6200750469043153 AccTest: 0.6441947565543071
+Neuronas: 8 Activation: relu alpha: 0.0001 Epoch: 159 AccTrain: 0.7244611059044048 AccTest: 0.6885553470919324
+Neuronas: 8 Activation: relu alpha: 0.0001 Epoch: 159 AccTrain: 0.7300843486410497 AccTest: 0.7392120075046904
+Neuronas: 8 Activation: identity alpha: 0.0001 Epoch: 159 AccTrain: 0.7664165103189493 AccTest: 0.7584269662921348
+Neuronas: 8 Activation: identity alpha: 0.0001 Epoch: 159 AccTrain: 0.7722586691658857 AccTest: 0.7523452157598499
+Neuronas: 8 Activation: identity alpha: 0.0001 Epoch: 159 AccTrain: 0.7497656982193065 AccTest: 0.7673545966228893
+AccTrain: 0.7628136259013805 AccTest: 0.7593755928916247
+Neuronas: 8 Activation: logistic alpha: 0.001 Epoch: 159 AccTrain: 0.700750469043152 AccTest: 0.6554307116104869
+Neuronas: 8 Activation: logistic alpha: 0.001 Epoch: 159 AccTrain: 0.6101218369259607 AccTest: 0.5891181988742964
+Neuronas: 8 Activation: logistic alpha: 0.001 Epoch: 159 AccTrain: 0.6804123711340206 AccTest: 0.699812382739212
+Neuronas: 8 Activation: relu alpha: 0.001 Epoch: 159 AccTrain: 0.624765478424015 AccTest: 0.6367041198501873
+Neuronas: 8 Activation: relu alpha: 0.001 Epoch: 159 AccTrain: 0.7272727272727273 AccTest: 0.6941838649155723
+Neuronas: 8 Activation: relu alpha: 0.001 Epoch: 159 AccTrain: 0.7300843486410497 AccTest: 0.7317073170731707
+Neuronas: 8 Activation: identity alpha: 0.001 Epoch: 159 AccTrain: 0.7664165103189493 AccTest: 0.7584269662921348
+Neuronas: 8 Activation: identity alpha: 0.001 Epoch: 159 AccTrain: 0.7722586691658857 AccTest: 0.7542213883677298
+Neuronas: 8 Activation: identity alpha: 0.001 Epoch: 159 AccTrain: 0.7488284910965324 AccTest: 0.7673545966228893
+AccTrain: 0.7625012235271225 AccTest: 0.760000983760918
+Neuronas: 8 Activation: logistic alpha: 0.01 Epoch: 159 AccTrain: 0.6923076923076923 AccTest: 0.6779026217228464
+Neuronas: 8 Activation: logistic alpha: 0.01 Epoch: 159 AccTrain: 0.6101218369259607 AccTest: 0.5891181988742964
+Neuronas: 8 Activation: logistic alpha: 0.01 Epoch: 159 AccTrain: 0.6860356138706654 AccTest: 0.7035647279549718
+Neuronas: 8 Activation: relu alpha: 0.01 Epoch: 159 AccTrain: 0.6463414634146342 AccTest: 0.6685393258426966
+Neuronas: 8 Activation: relu alpha: 0.01 Epoch: 159 AccTrain: 0.7160262417994376 AccTest: 0.6885553470919324
+Neuronas: 8 Activation: relu alpha: 0.01 Epoch: 159 AccTrain: 0.7197750702905342 AccTest: 0.7279549718574109
+Neuronas: 8 Activation: identity alpha: 0.01 Epoch: 159 AccTrain: 0.7673545966228893 AccTest: 0.7584269662921348
+Neuronas: 8 Activation: identity alpha: 0.01 Epoch: 159 AccTrain: 0.7713214620431116 AccTest: 0.7542213883677298
+Neuronas: 8 Activation: identity alpha: 0.01 Epoch: 159 AccTrain: 0.7497656982193065 AccTest: 0.7673545966228893
+AccTrain: 0.7628139189617692 AccTest: 0.760000983760918
+Neuronas: 8 Activation: logistic alpha: 0.1 Epoch: 159 AccTrain: 0.7645403377110694 AccTest: 0.7640449438202247
+Neuronas: 8 Activation: logistic alpha: 0.1 Epoch: 159 AccTrain: 0.703842549203374 AccTest: 0.6735459662288931
+Neuronas: 8 Activation: logistic alpha: 0.1 Epoch: 159 AccTrain: 0.6925960637300843 AccTest: 0.7129455909943715
+AccTrain: 0.7203263168815092 AccTest: 0.7168455003478297
+Neuronas: 8 Activation: relu alpha: 0.1 Epoch: 159 AccTrain: 0.7045028142589118 AccTest: 0.7340823970037453

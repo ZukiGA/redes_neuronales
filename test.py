@@ -45,24 +45,22 @@ X_trainK1 = X_trainK1.drop_duplicates()
 Y_trainK1 = X_trainK1[' class'] 
 X_trainK1 = X_trainK1.drop(columns=' class')
 
-    #--------------------------
-    #Fold 1 test
+#--------------------------
+#Fold 1 test
 X_testK1 = pd.read_csv('./BalanceoRNA3/DiabetesK1Test.csv')
 X_testK1 = X_testK1.drop_duplicates()
 Y_testK1 = X_testK1[[' class']]
 X_testK1 = X_testK1.drop(columns=' class')
-# print(Y_trainK1)
-#print(Y_trainK1.columns)
-'''
+
 #--------------------------
 #Fold 2 train
-X_trainK2 = pd.read_csv('./BalanceoRNA3/DiabetesK1Train.csv') #Fold 1 train
+X_trainK2 = pd.read_csv('./BalanceoRNA3/DiabetesK2Train.csv') #Fold 1 train
 X_trainK2 = X_trainK2.drop_duplicates()
 Y_trainK2 = X_trainK2[' class']
 X_trainK2 = X_trainK2.drop(columns=' class')
 
-    #--------------------------
-    #Fold 2 test
+#--------------------------
+#Fold 2 test
 X_testK2 = pd.read_csv('./BalanceoRNA3/DiabetesK2Test.csv') #Fold 2 test
 X_testK2 = X_testK2.drop_duplicates()
 Y_testK2 = X_testK2[' class']
@@ -73,14 +71,17 @@ X_testK2 = X_testK2.drop(columns=' class')
 X_trainK3 = pd.read_csv('./BalanceoRNA3/DiabetesK3Train.csv') #Fold 3 train
 X_trainK3 = X_trainK3.drop_duplicates()
 Y_trainK3 = X_trainK3[' class']
-Y_trainK3 = X_trainK3.drop(columns=' class')
-    #--------------------------
-    #Fold 3 test
+X_trainK3 = X_trainK3.drop(columns=' class')
+
+#--------------------------
+#Fold 3 test
 X_testK3 = pd.read_csv('./BalanceoRNA3/DiabetesK3Test.csv') #Fold 3 test
 X_testK3 = X_testK3.drop_duplicates()
 Y_testK3 = X_testK3[' class']
-X_trainK3 = X_trainK3.drop(columns=' class')
-'''
+X_testK3 = X_testK3.drop(columns=' class')
+
+# sets = [(X_trainK1, Y_trainK1, X_testK1, Y_testK1),(X_trainK2, Y_trainK2, X_testK2, Y_testK2),(X_trainK3, Y_trainK3, X_testK3, Y_testK3)]
+sets = [(X_trainK3, Y_trainK3, X_testK3, Y_testK3)]
 training_accuracy = [] #lista de aciertos de entrenamiento
 test_accuracy = [] #lista de aciertos de test
 training_error = [] #lista de errores de entrenamiento
@@ -93,14 +94,17 @@ plots_titles = []
 
 output_file = open("output.txt", "w")
 n_epoch = range(1, 160, 1) #granularidad de 10 a 200 de 10 en 10
-neurons = range(8,10,1)
-alphas = [1e-5, 1e-1]
-activations = ['identity', 'logistic']
+neurons = range(7,10)
+alphas = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
+activations = ['logistic', 'relu', 'identity']
 
-try:
-  for activation in activations:
-    for neuron in neurons: 
-      for alphaValue in alphas:
+
+for neuron in neurons:
+  for alpha in alphas:
+    for activation in activations:
+      accuracytrainglobal = 0
+      accuracytestglobal = 0
+      for X_train, Y_train, X_test, Y_test in sets:
         training_accuracy = []
         training_error = []
         test_accuracy = []
@@ -108,51 +112,34 @@ try:
         for epoch in n_epoch:
             # build the model
             clasificador = MLPClassifier(solver='lbfgs', #metrica de calidad de resutlado
-                            alpha=alphaValue,
+                            alpha=alpha,
                             hidden_layer_sizes=(neuron),
                             random_state=42,
-                            activation = activation,
+                            activation=activation,
                             max_iter=epoch)
-            clasificador.fit(X_trainK1, Y_trainK1)
+            clasificador.fit(X_train, Y_train)
             # record training set accuracy and error
-            training_accuracy.append(clasificador.score(X_trainK1, Y_trainK1))
-            training_error.append(1.0 - clasificador.score(X_trainK1, Y_trainK1))
+            training_accuracy.append(clasificador.score(X_train, Y_train))
+            training_error.append(1.0 - clasificador.score(X_train, Y_train))
             # record generalization accuracy and error
-            test_accuracy.append(clasificador.score(X_testK1, Y_testK1))
-            test_error.append(1.0 - clasificador.score(X_testK1, Y_testK1))
+            test_accuracy.append(clasificador.score(X_test, Y_test))
+            test_error.append(1.0 - clasificador.score(X_test, Y_test))
             
-            accuracytrain = clasificador.score(X_trainK1, Y_trainK1)
-            accuracytest = clasificador.score(X_testK1, Y_testK1)
-              
-        if accuracytrain > 0.75 and accuracytest > 0.7:
-          print(f"Neuronas: {neuron} Activation: {activation} alpha: {alphaValue} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}", file=output_file)   
-          plt.plot(n_epoch, training_accuracy, label="training accuracy")
-          plt.plot(n_epoch, test_accuracy, label="test accuracy")
-          plt.ylabel("Accuracy")
-          plt.xlabel("n_depth")
-          plt.text(5, 8,f"Neuronas: {neuron} Activation: {activation} alpha: {alphaValue} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}")
-          plt.savefig(f"./graphs/output-{datetime.datetime.now()}.png")
-          plt.clf()
-except KeyboardInterrupt:
-    print(f"Neuronas: {neuron}")
+            accuracytrain = clasificador.score(X_train, Y_train)
+            accuracytest = clasificador.score(X_test, Y_test)
+        accuracytrainglobal += accuracytrain
+        accuracytestglobal += accuracytest 
+        print(f"Neuronas: {neuron} Activation: {activation} alpha: {alpha} Epoch: {epoch} AccTrain: {accuracytrain} AccTest: {accuracytest}", file=output_file)
 
+      accuracytestglobal = accuracytestglobal/len(sets)
+      accuracytrainglobal = accuracytrainglobal/len(sets)
 
-            
-
-          #print("Accuracy on training set: {:.3f}".format(clasificador.score(X_trainK1, Y_trainK1)))
-          #print("Accuracy on test set: {:.3f}".format(clasificador.score(X_testK1, Y_testK1)))
-'''
-plt.plot(n_epoch, training_accuracy, label="training accuracy")
-plt.plot(n_epoch, test_accuracy, label="test accuracy")
-plt.ylabel("Accuracy")
-plt.xlabel("n_depth")
-plt.legend()
-plt.show()
-
-plt.plot(n_epoch, training_error, label="training error")
-plt.plot(n_epoch, test_error, label="test error")
-plt.ylabel("Error")
-plt.xlabel("n_depth")
-plt.legend()
-plt.show()
-'''
+      if accuracytestglobal < accuracytrainglobal and accuracytrainglobal > 0.7 and accuracytestglobal > 0.7:
+        print(f"AccTrain: {accuracytrainglobal} AccTest: {accuracytestglobal}", file=output_file)
+        plt.plot(n_epoch, training_accuracy, label="training accuracy")
+        plt.plot(n_epoch, test_accuracy, label="test accuracy")
+        plt.ylabel("Accuracy")
+        plt.xlabel("n_depth")
+        plt.text(5, 8,f"AccTrain: {accuracytrain} AccTest: {accuracytest}")
+        plt.savefig(f"./graphs/output-{datetime.datetime.now()}.png")
+        plt.clf()   
