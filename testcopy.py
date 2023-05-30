@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import OneHotEncoder
 import datetime
+from sklearn.metrics import classification_report
 
 
 # atributosName=setInicial.columns[:-1]
@@ -88,13 +89,10 @@ plots_titles = []
 
 
 output_file = open("output.txt", "w")
-n_epoch = range(1, 200, 1) #granularidad de 10 a 200 de 10 en 10
-# neurons = range(7,10)
-# alphas = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
-# activations = ['logistic', 'relu', 'identity']
+n_epoch = range(1, 160, 1) #granularidad de 10 a 200 de 10 en 10
 neurons = 8
-alpha = 0.0001
-activation = 'relu'
+alpha = 0.01
+activation = 'identity'
 for X_train, Y_train, X_test, Y_test in sets:
   training_accuracy = []
   training_error = []
@@ -151,7 +149,7 @@ for epoch in n_epoch:
                     random_state=42,
                     activation=activation,
                     max_iter=epoch)
-    clasificador.fit(X_train80, Y_train80)
+    modelo = clasificador.fit(X_train80, Y_train80)
     # record training set accuracy and error
     training_accuracy.append(clasificador.score(X_train80, Y_train80))
     training_error.append(1.0 - clasificador.score(X_train80, Y_train80))
@@ -161,6 +159,11 @@ for epoch in n_epoch:
     
     accuracytrain = clasificador.score(X_train80, Y_train80)
     accuracytest = clasificador.score(X_test, Y_test)
+predict = modelo.predict(X_test20)
+reporte=classification_report(Y_test20, predict, labels=Y_train80, output_dict=True)
+reporte2=classification_report(Y_test20, predict, labels=Y_train80)#, output_dict=True)
+print(reporte2)
+    # f1.append(reporte['accuracy'])
     
 print(f"AccTrain: {accuracytrain} AccTest: {accuracytest}", file=output_file)
 plt.plot(n_epoch, training_accuracy, label="training accuracy")
